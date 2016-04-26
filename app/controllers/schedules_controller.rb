@@ -1,6 +1,6 @@
 class SchedulesController < ApplicationController
   before_action :set_schedule, only: [:show, :edit, :update, :destroy]
-
+  belongs_to :user
   # GET /schedules
   # GET /schedules.json
   def index
