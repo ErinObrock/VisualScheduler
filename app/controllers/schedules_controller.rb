@@ -1,10 +1,14 @@
 class SchedulesController < ApplicationController
   before_action :set_schedule, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user
+  before_action :signed_in_user
+  before_action :set_schedule, only: [:toggle_completed, :show, :edit, :update, :destroy]
+  before_action :verify_correct_user, only: [:show, :edit, :update, :destroy]
   belongs_to :user
   # GET /schedules
   # GET /schedules.json
   def index
-    @schedules = Schedule.all
+    @schedules = current_user.schedules.all
   end
 
   # GET /schedules/1
@@ -25,6 +29,7 @@ class SchedulesController < ApplicationController
   # POST /schedules.json
   def create
     @schedule = Schedule.new(schedule_params)
+    @schedule.user = current_user
 
     respond_to do |format|
       if @schedule.save
@@ -59,6 +64,11 @@ class SchedulesController < ApplicationController
       format.html { redirect_to schedules_url, notice: 'Schedule was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def verify_correct_user
+    @todo = current_user.todos.find_by(id: params[:id])
+    redirect_to root_url, notice: 'Access Denied!' if @todo.nil?
   end
 
   private
