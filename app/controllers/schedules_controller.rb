@@ -1,13 +1,12 @@
-class SchedulesController < ApplicationController
+class SchedulesController  < ApplicationController
   before_action :set_schedule, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user
   before_action :signed_in_user
   before_action :set_schedule, only: [:toggle_completed, :show, :edit, :update, :destroy]
   before_action :verify_correct_user, only: [:show, :edit, :update, :destroy]
-  belongs_to :user
   # GET /schedules
   # GET /schedules.json
   def index
+    current_user = User.find(params[:user_id])
     @schedules = current_user.schedules.all
   end
 
@@ -18,6 +17,7 @@ class SchedulesController < ApplicationController
 
   # GET /schedules/new
   def new
+    @user = User.find(params[:user_id])
     @schedule = Schedule.new
   end
 
@@ -67,7 +67,7 @@ class SchedulesController < ApplicationController
   end
 
   def verify_correct_user
-    @todo = current_user.todos.find_by(id: params[:id])
+    @schedule = current_user.schedules.find_by(id: params[:id])
     redirect_to root_url, notice: 'Access Denied!' if @todo.nil?
   end
 
