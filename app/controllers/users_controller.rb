@@ -7,12 +7,12 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    @users = User.all
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
   end
 
   # GET /users/new
@@ -32,7 +32,7 @@ def create
 
   respond_to do |format|
     if @user.save
-   #   sign_in @user
+      sign_in @user
       format.html { redirect_to root_path, notice: 'Welcome!' }
       format.json { render :show, status: :created, location: @user }
     else

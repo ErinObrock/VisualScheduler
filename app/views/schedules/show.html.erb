@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  Title:
   <%= @schedule.title %>
 </p>
 
-<%= link_to 'Edit', edit_schedule_path(@schedule) %> |
-<%= link_to 'Back', schedules_path %>
+<%= link_to 'Edit', edit_user_schedule_path(@user, @schedule) %> |
+<%= link_to 'Back', :back %>
