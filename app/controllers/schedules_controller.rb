@@ -1,5 +1,5 @@
 class SchedulesController  < ApplicationController
-  before_action :set_schedule, only: [:show, :edit, :update, :destroy, :toggle_completed]
+  before_action :set_schedule, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user
   before_action :verify_correct_user, only: [:show, :edit, :update, :destroy]
   # GET /schedules
@@ -105,6 +105,6 @@ end
 
      #Never trust parameters from the scary internet, only allow the white list through.
     def schedule_params
-      params.require(:schedule).permit(:title, :id, :photo_url, :completed)
+      params.require(:schedule).permit(:title, :id, :photo_url)
     end
 end
