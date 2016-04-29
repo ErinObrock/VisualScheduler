@@ -32,6 +32,11 @@ gem 'bootstrap-sass', '~> 3.2.0'
 
 gem 'autoprefixer-rails'
 
+group :production do
+
+  gem 'rails_12factor'
+end
+
 
 
 # Use ActiveModel has_secure_password
