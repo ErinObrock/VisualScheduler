@@ -3,6 +3,8 @@
 <p>
   Title:
   <%= @schedule.title %>
+  Picture:
+  <%= image_tag @schedule.photo_url %>
 </p>
 
 <%= link_to 'Edit', edit_user_schedule_path(@user, @schedule) %> |
