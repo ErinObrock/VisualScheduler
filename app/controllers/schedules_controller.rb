@@ -77,18 +77,6 @@ class SchedulesController  < ApplicationController
     end
   end
 
-  def toggle_completed
-
-  @schedule.completed = !@schedule.completed
-  respond_to do |format|
-    if @schedule.save
-      format.html { redirect_to user_schedules_path(@user) }
-      format.json { render :show, status: :ok, location: @todo }
-    else
-      # show some error message
-    end
-  end
-end
 
 
   private
