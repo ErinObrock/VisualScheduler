@@ -4,11 +4,8 @@ class Schedule < ActiveRecord::Base
 
   validates :title, presence: true
   
- 
 
 
-def default_values
-    self.completed ||= false
-    nil                           # required so that TX will not rollback!!!
-  end
+
+
 end
