@@ -13,6 +13,7 @@
 - Heroku
 - ActiveRecord
 - SASS
+- PostgresSQL
 
 == Rough Drafts
 
