@@ -1,5 +1,5 @@
 class RemoveCompletedFromSchedule < ActiveRecord::Migration
-  def change
+  def up
     remove_column :schedules, :completed, :boolean
   end
 end
