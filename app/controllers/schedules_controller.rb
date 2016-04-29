@@ -1,5 +1,5 @@
 class SchedulesController  < ApplicationController
-  before_action :set_schedule, only: [:show, :edit, :update, :destroy]
+  before_action :set_schedule, only: [:show, :edit, :update, :destroy, :toggle_completed]
   before_action :signed_in_user
   before_action :verify_correct_user, only: [:show, :edit, :update, :destroy]
   # GET /schedules
@@ -76,6 +76,19 @@ class SchedulesController  < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def toggle_completed
+
+  @schedule.completed = !@schedule.completed
+  respond_to do |format|
+    if @schedule.save
+      format.html { redirect_to user_schedules_path(@user) }
+      format.json { render :show, status: :ok, location: @todo }
+    else
+      # show some error message
+    end
+  end
+end
 
 
   private

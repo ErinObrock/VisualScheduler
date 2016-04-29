@@ -1,28 +1,25 @@
-== README
+== Project Notes
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# I utilized nested resources to allow users to create multiple schedules, each involving one task and the  
+# corresponding pictograph. These schedules can be viewed both individually and as a comprehensive list. Bootstrap 
+# was used to help provide uniformity in layout and standardize the image sizes. Most challenging in this project
+ # for me was handling my nested routing.
 
-Things you may want to cover:
+== Technologies Used
 
-* Ruby version
+- Ruby on Rails
+- Bootstrap
+- Github
+- Heroku
+- ActiveRecord
+- SASS
 
-* System dependencies
+== Rough Drafts
 
-* Configuration
+- {My Trello Board}[https://trello.com/b/jok09mHw/project-2]
 
-* Database creation
+== Future Developments
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+# I have a lot I plan on accomplishing with this app in the future. I would like to impliment a third nested 
+# resource so that multiple schedules can be created, each with their own events, for example one schedule for the # weekdays and another for the weekends. 
+# Also would like the user to be able to adjust the order of the listed schedules and events at their leisure.

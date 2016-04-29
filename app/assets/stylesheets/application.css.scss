@@ -20,6 +20,15 @@
  *= require_self
  */
 
+$body-bg: transparent;
+
+body {
+  padding-top: $navbar-height + 10px;
+  background: #FFF0F0;
+}
+
+a {
+  color: black;
+  }
 
 
-body {margin-top: 50px}
